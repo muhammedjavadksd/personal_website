@@ -6,7 +6,10 @@
     --bg-color: #1a1a1a;
 }
 
-
+.logoText{
+    color: white; 
+    margin-top: 15px;
+}
 
 button.navbarToggle {
     display: none;
