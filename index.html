@@ -694,23 +694,30 @@
                         <div class="alert alert-danger d-none" id="contactAlert">
 
                         </div>
-                        <form id="contact-form" action="" method="post">
+                        <form id="contact-form">
+
                             <div class="formGroup">
                                 <label for="">Name</label>
-                                <input type="text" name="Name" class="inputForm" required id="name" placeholder="eg : John Doe">
+                                <input type="text" name="Name" class="inputForm" id="name" placeholder="eg : John Doe"
+                                    required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
                             </div>
                             <div class="formGroup">
                                 <label for="">Email</label>
-                                <input type="text" name="Email"  class="inputForm" id="email" placeholder="eg : john.doe@gmail.com">
+                                <input type="email" name="Email" class="inputForm" id="email"
+                                    placeholder="eg : john.doe@gmail.com" required>
                             </div>
                             <div class="formGroup">
                                 <label for="">Phone Number</label>
-                                <input type="text" name="Phone"  class="inputForm" id="phone" placeholder="eg : 9876543210">
+                                <input type="number" name="Phone" class="inputForm" id="phone"
+                                    placeholder="eg : 9876543210" required>
                             </div>
                             <div class="formGroup">
                                 <label for="">Write Something</label>
-                                <textarea name="Message" id="message" cols="30" rows="5"
-                                    placeholder="Write Something"></textarea>
+                                <textarea name="Message" id="message" cols="30" rows="5" placeholder="Write Something"
+                                    required></textarea>
                             </div>
                             <button class="formBtn">Send</button>
                         </form>
@@ -873,12 +880,10 @@
                     method: "post",
                     success: function (response) {
                         alert("Form submitted successfully")
-                        window.location.reload()
-                        //window.location.href="https://google.com"
+                        window.location.reload() 
                     },
                     error: function (err) {
-                        alert("Something Error")
-
+                        alert("Something Error") 
                     }
                 })
             }
@@ -887,10 +892,11 @@
             $("#contact-form").submit((e) => {
                 e.preventDefault()
 
+
                 const inputs = document.querySelectorAll(".inputForm");
                 var flag = 0;
                 inputs.forEach((input) => {
-                  
+
                     if (input.value == "") {
                         flag = 1;
                     }
@@ -898,9 +904,9 @@
 
                 if (flag == 0) {
                     $("#contactAlert").removeClass("d-flex");
-                    $("#contactAlert").removeClass("d-flex"); 
+                    $("#contactAlert").removeClass("d-flex");
                     sendDataToEmail();
-                }else{
+                } else {
                     $("#contactAlert").text("Please fill form properly");
                     $("#contactAlert").removeClass("d-none");
 
@@ -920,8 +926,6 @@
 
 
 
-
-        // Array of texts to display
         var texts = [
             "Full Stack   Developer",
             "Flutter Developer",
@@ -933,28 +937,21 @@
         var h2Element = document.getElementById("mySkill");
 
         function changeText() {
-            // Remove the typing animation class
             h2Element.classList.remove("typing-animation");
 
-            // Clear the previous text
             h2Element.textContent = "";
 
-            // Add the typing animation class after a short delay
             setTimeout(function () {
                 h2Element.classList.add("typing-animation");
             }, 100);
 
-            // Set the new text
             h2Element.textContent = texts[currentIndex];
 
-            // Increment the index for the next text
             currentIndex = (currentIndex + 1) % texts.length;
         }
 
-        // Call the changeText function every 10 seconds
         setInterval(changeText, 10000);
 
-        // Initial text change
         changeText();
     </script>
 

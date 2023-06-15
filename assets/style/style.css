@@ -333,7 +333,6 @@ header {
 }
 
 .worldBoxItem:hover {
-
     transition: 0.3s;
     border: 1px solid #5a7ffb;
 }
